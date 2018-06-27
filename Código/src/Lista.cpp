@@ -111,13 +111,11 @@ void Arquivos::LerListaOriginal(Lista* lista, unsigned *indice, std::istream& Li
 				chave[i] = toupper(chave[i]);
 			}
 
-			//Pegar matricula
-			string linhaP, vt_mat;
-			getline(Lista, linhaP);
-			matricula = linhaP.substr(41, 6);
-			cout << matricula;
+			//Pegar matricula e juntar com o nome
+			matricula = linha.substr(41, 7);
+			string chaves_concatenadas = chave+matricula;
 
-			Inserir(&(*indice), &(*no), anterior, chave, RRN, curso, indicelista);
+			Inserir(&(*indice), &(*no), anterior, chaves_concatenadas, RRN, curso, indicelista);
 
 			if((*indice) == 0){
 				(*indice)++;
